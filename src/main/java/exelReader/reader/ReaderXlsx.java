@@ -23,10 +23,14 @@ public class ReaderXlsx implements Runnable {
 
 	File xlnxFile;
 	Main main;
+	//--------to copy----------------------
 	Path target = Paths.get("C:\\Users\\Tomek\\Documents\\arkusze\\copy\\Zeszyt1.xlsx");
+	private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	public ReaderXlsx(File file, Main main) {
 		this.xlnxFile = file;
 		this.main = main;
+		LogManager.getLogManager().reset();
+		logr.setLevel(Level.FINE);
 	}
 	@Override
 	public void run() {
@@ -65,6 +69,7 @@ public class ReaderXlsx implements Runnable {
 			    }
 			}
 			System.out.println();
+			logr.log(Level.INFO,"Read complet");
 		}
 		
 //		try {
